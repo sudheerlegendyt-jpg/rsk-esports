@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSK ESPORTS | Play Beyond Limits</title>
-    <!-- CSS Architecture -->
+    <!-- Tailwind Engine -->
     <script src="https://tailwindcss.com"></script>
-    <!-- Production Scale React Bundles Engine -->
+    <!-- Stable Production React Engine CDN -->
     <script src="https://unpkg.com" crossorigin></script>
     <script src="https://unpkg.com" crossorigin></script>
-    <script src="https://unpkg.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-[#0a0a0c] text-white m-0 font-sans selection:bg-[#ff003c]">
     <div id="root"></div>
@@ -50,7 +50,6 @@
 
             return (
                 <div className="min-h-screen flex flex-col justify-between">
-                    {/* Navigation System */}
                     <nav className="sticky top-0 z-50 bg-[#121216]/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
                         <div className="cursor-pointer font-black text-2xl tracking-wider" onClick={() => setCurrentPage('Home')}>
                             RSK <span className="text-[#ff003c]">ESPORTS</span>
@@ -63,10 +62,9 @@
                         <a href={siteSettings.discordLink} target="_blank" className="bg-[#ff003c] font-black px-4 py-2 rounded text-xs uppercase shadow-[0_0_10px_rgba(255,0,60,0.4)]">Join Discord</a>
                     </nav>
 
-                    {/* App Core Router Switch */}
                     <main className="flex-grow">
                         {currentPage === 'Home' && (
-                            <div className="transition-all duration-300">
+                            <div>
                                 <section className="min-h-[60vh] flex flex-col justify-center items-center text-center px-6 bg-[radial-gradient(circle_at_center,rgba(255,0,60,0.15)_0%,transparent_60%)]">
                                     <h2 className="text-xs font-bold tracking-[0.4em] text-[#ff003c] uppercase mb-2">{siteSettings.tagline}</h2>
                                     <h1 className="text-5xl md:text-7xl font-black uppercase mb-6">RSK <span className="text-[#ff003c]">ESPORTS</span></h1>
@@ -129,3 +127,5 @@
                                         <input type="password" placeholder="Password (rsk123)" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} className="w-full bg-white/5 border border-white/10 p-3 rounded text-sm text-white" required />
                                         <button type="submit" className="w-full bg-[#ff003c] text-white py-3 font-bold text-xs uppercase tracking-wider rounded">Login</button>
                                     </form>
+                                ) : (
+                                    <div className="space-y-6">
