@@ -5,6 +5,7 @@ const cors = require("cors");
 const path = require("path");
 const connectDB = require("./config/db");
 const tournamentRoutes = require("./routes/tournament");
+const playerRoutes = require("./routes/player");
 const app = express();
 
 connectDB();
@@ -12,6 +13,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/tournament", tournamentRoutes);
+app.use("/api/player", playerRoutes);
 app.use("/api/admin", adminRoutes);
 app.use(express.static(path.join(__dirname, "../client")));
 
