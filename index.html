@@ -4,105 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSK ESPORTS | Play Beyond Limits</title>
-    <!-- Tailwind CSS Fluid Frame -->
+    <!-- Tailwind CSS Dynamic Framework -->
     <script src="https://tailwindcss.com"></script>
     <style>
-        body { background-color: #0a0a0c; font-family: system-ui, -apple-system, sans-serif; }
-        .glass-panel { background: rgba(18, 18, 22, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 0, 60, 0.15); }
-        .neon-glow { text-shadow: 0 0 12px rgba(255, 0, 60, 0.6); }
+        /* Saaf aur clear dikhne ke liye light background theme configuration */
+        body { background-color: #f4f6f9; font-family: system-ui, -apple-system, sans-serif; color: #1a1a24; }
+        .clear-card { background: #ffffff; border: 1px solid rgba(255, 0, 60, 0.2); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
+        .red-text { color: #e10032; text-shadow: 0 0 1px rgba(225, 0, 50, 0.1); }
     </style>
 </head>
-<body class="text-white min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between">
 
-    <!-- Sticky Structural Header Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#121216]/95 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <div class="cursor-pointer font-black text-2xl tracking-wider" onclick="renderView('home')">
-            RSK <span class="text-[#ff003c] neon-glow">ESPORTS</span>
+    <!-- Premium Navigation Bar (Ab Dark Text ke sath ekdam clear dikhega) -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="cursor-pointer font-black text-2xl tracking-wider text-[#1a1a24]" onclick="renderView('home')">
+            RSK <span class="text-[#e10032]">ESPORTS</span>
         </div>
         <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-wider">
-            <button onclick="renderView('home')" class="hover:text-[#ff003c] transition cursor-pointer">Home</button>
-            <button onclick="renderView('tournaments')" class="hover:text-[#ff003c] transition cursor-pointer">Tournaments</button>
-            <button onclick="renderView('leaderboard')" class="hover:text-[#ff003c] transition cursor-pointer">Leaderboard</button>
-            <button onclick="renderView('admin')" class="hover:text-[#ff003c] transition font-bold text-[#ff003c] cursor-pointer">Admin Panel ⚙️</button>
+            <button onclick="renderView('home')" class="text-gray-700 hover:text-[#e10032] transition cursor-pointer">Home</button>
+            <button onclick="renderView('tournaments')" class="text-gray-700 hover:text-[#e10032] transition cursor-pointer">Tournaments</button>
+            <button onclick="renderView('leaderboard')" class="text-gray-700 hover:text-[#e10032] transition cursor-pointer">Leaderboard</button>
+            <button onclick="renderView('admin')" class="text-[#e10032] hover:underline font-extrabold cursor-pointer">Admin Panel ⚙️</button>
         </div>
-        <a href="https://discord.gg" target="_blank" class="bg-[#ff003c] font-black px-4 py-2 rounded text-xs uppercase shadow-[0_0_10px_rgba(255,0,60,0.4)]">Join Discord</a>
+        <a href="https://discord.gg" target="_blank" class="bg-[#e10032] text-white font-black px-4 py-2 rounded text-xs uppercase shadow-md">Join Discord</a>
     </nav>
 
-    <!-- Master Framework Target Hub -->
+    <!-- Content Controller Zones -->
     <main class="flex-grow max-w-5xl w-full mx-auto px-6 py-12 flex flex-col justify-center">
         
-        <!-- MODULE ZONE 1: CORE LANDING HOME -->
+        <!-- ZONE 1: HOME PAGE -->
         <div id="view-home" class="view-layer block">
-            <section class="min-h-[45vh] flex flex-col justify-center items-center text-center bg-[radial-gradient(circle_at_center,rgba(255,0,60,0.15)_0%,transparent_60%)] mb-6">
-                <h2 id="display-tagline" class="text-xs font-bold tracking-[0.4em] text-[#ff003c] uppercase mb-2">Play Beyond Limits</h2>
-                <h1 class="text-5xl md:text-7xl font-black uppercase mb-6">RSK <span class="text-[#ff003c] neon-glow">ESPORTS</span></h1>
-                <button onclick="renderView('tournaments')" class="bg-[#ff003c] font-black px-6 py-3 uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(255,0,60,0.4)] cursor-pointer">Register Now</button>
+            <section class="min-h-[40vh] flex flex-col justify-center items-center text-center mb-6">
+                <h2 id="display-tagline" class="text-xs font-black tracking-[0.4em] text-[#e10032] uppercase mb-2">Play Beyond Limits</h2>
+                <h1 class="text-5xl md:text-7xl font-black uppercase text-[#1a1a24] mb-6">RSK <span class="text-[#e10032]">ESPORTS</span></h1>
+                <button onclick="renderView('tournaments')" class="bg-[#e10032] text-white font-black px-6 py-3 uppercase tracking-widest text-sm shadow-md cursor-pointer">Register Now</button>
             </section>
             
-            <div class="max-w-md mx-auto glass-panel p-6 rounded-xl relative">
-                <span class="absolute top-0 right-0 bg-[#ff003c] text-[9px] font-bold px-3 py-1 uppercase tracking-wider">Live Banner</span>
-                <h3 id="display-banner" class="text-xl font-black uppercase mb-2">BGMI Pro League: Season 4</h3>
-                <div class="mt-4 pt-4 border-t border-white/5">
-                    <span class="text-xs text-gray-500 uppercase block tracking-wider">Total Prize Capital</span>
-                    <span id="display-pool" class="text-2xl font-black text-[#ff003c]">₹5,000,000</span>
+            <div class="max-w-md mx-auto clear-card p-6 rounded-xl relative">
+                <span class="absolute top-0 right-0 bg-[#e10032] text-white text-[9px] font-bold px-3 py-1 uppercase tracking-wider rounded-bl-lg">Live Banner</span>
+                <h3 id="display-banner" class="text-xl font-black uppercase text-[#1a1a24] mb-2">BGMI Pro League: Season 4</h3>
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <span class="text-xs text-gray-500 uppercase block font-semibold tracking-wider">Total Prize Capital</span>
+                    <span id="display-pool" class="text-3xl font-black text-[#e10032]">₹5,000,000</span>
                 </div>
             </div>
         </div>
 
-        <!-- MODULE ZONE 2: ACTIVE TOURNAMENTS LIST -->
+        <!-- ZONE 2: TOURNAMENTS LIST -->
         <div id="view-tournaments" class="view-layer hidden space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center">Active <span class="text-[#ff003c]">Championships</span></h2>
-            <div class="glass-panel p-5 rounded-xl flex flex-wrap items-center justify-between gap-4">
-                <div><span class="bg-[#ff003c] text-[9px] font-black px-2 py-0.5 rounded uppercase">Upcoming</span><h3 class="text-lg font-bold uppercase mt-1">BGMI Ultimate Showdown</h3></div>
-                <button class="bg-white text-black font-bold text-xs px-4 py-2 uppercase hover:bg-[#ff003c] hover:text-white transition cursor-pointer">Register</button>
+            <h2 class="text-3xl font-black uppercase text-center text-[#1a1a24]">Active <span class="text-[#e10032]">Championships</span></h2>
+            <div class="clear-card p-5 rounded-xl flex flex-wrap items-center justify-between gap-4">
+                <div><span class="bg-[#e10032] text-white text-[9px] font-black px-2 py-0.5 rounded uppercase">Upcoming</span><h3 class="text-lg font-bold text-[#1a1a24] uppercase mt-1">BGMI Ultimate Showdown</h3></div>
+                <button class="bg-[#1a1a24] text-white font-bold text-xs px-4 py-2 uppercase hover:bg-[#e10032] transition cursor-pointer">Register</button>
             </div>
         </div>
 
-        <!-- MODULE ZONE 3: LIVE STANDINGS LEADBOARD -->
+        <!-- ZONE 3: LEADERBOARD SYSTEM -->
         <div id="view-leaderboard" class="view-layer hidden space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center">Live <span class="text-[#ff003c]">Standings</span></h2>
-            <div class="glass-panel rounded-xl p-4 overflow-x-auto">
+            <h2 class="text-3xl font-black uppercase text-center text-[#1a1a24]">Live <span class="text-[#e10032]">Standings</span></h2>
+            <div class="clear-card rounded-xl p-4 overflow-x-auto">
                 <table class="w-full text-left">
-                    <thead><tr class="border-b border-white/10 text-gray-500 text-xs font-bold"><th class="p-2">Rank</th><th class="p-2">Team</th><th class="p-2">Points</th></tr></thead>
-                    <tbody class="text-sm font-semibold divide-y divide-white/5">
-                        <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#1</td><td class="p-2 font-bold uppercase">GodLike Esports</td><td class="p-2 text-[#ff003c] font-black">96</td></tr>
-                        <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#2</td><td class="p-2 font-bold uppercase">Team Soul</td><td class="p-2 text-[#ff003c] font-black">88</td></tr>
+                    <thead><tr class="border-b border-gray-200 text-gray-500 text-xs font-bold"><th class="p-2">Rank</th><th class="p-2">Team</th><th class="p-2">Points</th></tr></thead>
+                    <tbody class="text-sm font-bold text-gray-800 divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50"><td class="p-2 text-[#e10032]">#1</td><td class="p-2 font-black uppercase">GodLike Esports</td><td class="p-2 text-[#e10032] font-black">96</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="p-2 text-[#e10032]">#2</td><td class="p-2 font-black uppercase">Team Soul</td><td class="p-2 text-[#e10032] font-black">88</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- MODULE ZONE 4: CONTROL ROOM CENTRAL UNIT -->
+        <!-- ZONE 4: CONTROL ROOM DASHBOARD -->
         <div id="view-admin" class="view-layer hidden max-w-md w-full mx-auto">
-            <div class="glass-panel p-6 rounded-xl space-y-4">
-                <h3 class="text-xl font-black uppercase text-center">Admin <span class="text-[#ff003c]">Portal</span></h3>
+            <div class="clear-card p-6 rounded-xl space-y-4">
+                <h3 class="text-xl font-black uppercase text-center text-[#1a1a24]">Admin <span class="text-[#e10032]">Portal</span></h3>
                 <div class="space-y-3">
                     <div>
-                        <label class="text-[10px] text-gray-500 uppercase block mb-1">Website Tagline</label>
-                        <input type="text" id="input-tagline" class="w-full bg-white/5 border border-white/10 p-2.5 rounded text-sm text-white outline-none focus:border-[#ff003c]" />
+                        <label class="text-[10px] text-gray-600 font-bold uppercase block mb-1">Website Tagline</label>
+                        <input type="text" id="input-tagline" class="w-full bg-gray-50 border border-gray-300 p-2.5 rounded text-sm text-[#1a1a24] font-semibold outline-none focus:border-[#e10032]" />
                     </div>
                     <div>
-                        <label class="text-[10px] text-gray-500 uppercase block mb-1">Event Tournament Heading</label>
-                        <input type="text" id="input-banner" class="w-full bg-white/5 border border-white/10 p-2.5 rounded text-sm text-white outline-none focus:border-[#ff003c]" />
+                        <label class="text-[10px] text-gray-600 font-bold uppercase block mb-1">Event Tournament Heading</label>
+                        <input type="text" id="input-banner" class="w-full bg-gray-50 border border-gray-300 p-2.5 rounded text-sm text-[#1a1a24] font-semibold outline-none focus:border-[#e10032]" />
                     </div>
                     <div>
-                        <label class="text-[10px] text-gray-500 uppercase block mb-1">Prize Capital Volume</label>
-                        <input type="text" id="input-pool" class="w-full bg-white/5 border border-white/10 p-2.5 rounded text-sm text-white outline-none focus:border-[#ff003c]" />
+                        <label class="text-[10px] text-gray-600 font-bold uppercase block mb-1">Prize Capital Volume</label>
+                        <input type="text" id="input-pool" class="w-full bg-gray-50 border border-gray-300 p-2.5 rounded text-sm text-[#1a1a24] font-semibold outline-none focus:border-[#e10032]" />
                     </div>
                 </div>
-                <button onclick="commitLiveSystemOverrides()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-bold text-xs uppercase tracking-wider rounded cursor-pointer transition">Push Core Overrides</button>
+                <button onclick="commitLiveSystemOverrides()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-bold text-xs uppercase tracking-wider rounded cursor-pointer transition shadow-sm">Push Core Overrides</button>
             </div>
         </div>
     </main>
 
-    <!-- Structural Permanent Branding Footer -->
-    <footer class="bg-[#121216] border-t border-white/10 p-6 text-center text-xs text-gray-500">
-        <p class="font-bold text-white uppercase mb-1">RSK ESPORTS SYSTEM</p>
+    <!-- Clear Footer Frame -->
+    <footer class="bg-white border-t border-gray-200 p-6 text-center text-xs text-gray-500 shadow-inner">
+        <p class="font-bold text-gray-800 uppercase mb-1">RSK ESPORTS SYSTEM</p>
     </footer>
 
-    <!-- Native Dynamic Application Data Sync Machine -->
+    <!-- Native Real-time Scripting Layer -->
     <script>
-        // Memory variables injection and hydration framework
         if(!localStorage.getItem('rsk_tagline')) localStorage.setItem('rsk_tagline', 'Play Beyond Limits');
         if(!localStorage.getItem('rsk_banner')) localStorage.setItem('rsk_banner', 'BGMI Pro League: Season 4');
         if(!localStorage.getItem('rsk_pool')) localStorage.setItem('rsk_pool', '₹5,000,000');
@@ -112,7 +112,6 @@
             document.getElementById('display-banner').innerText = localStorage.getItem('rsk_banner');
             document.getElementById('display-pool').innerText = localStorage.getItem('rsk_pool');
             
-            // Populating inputs inside admin box cache hydration
             document.getElementById('input-tagline').value = localStorage.getItem('rsk_tagline');
             document.getElementById('input-banner').value = localStorage.getItem('rsk_banner');
             document.getElementById('input-pool').value = localStorage.getItem('rsk_pool');
@@ -131,20 +130,15 @@
         }
 
         function commitLiveSystemOverrides() {
-            const newTag = document.getElementById('input-tagline').value;
-            const newBan = document.getElementById('input-banner').value;
-            const newPool = document.getElementById('input-pool').value;
-
-            localStorage.setItem('rsk_tagline', newTag);
-            localStorage.setItem('rsk_banner', newBan);
-            localStorage.setItem('rsk_pool', newPool);
+            localStorage.setItem('rsk_tagline', document.getElementById('input-tagline').value);
+            localStorage.setItem('rsk_banner', document.getElementById('input-banner').value);
+            localStorage.setItem('rsk_pool', document.getElementById('input-pool').value);
 
             synchronizeInterfaceCache();
-            alert('System variables successfully synchronized on-the-fly!');
+            alert('System settings overwritten successfully!');
             renderView('home');
         }
 
-        // Initialize engine framework lifecycle run
         synchronizeInterfaceCache();
     </script>
 </body>
