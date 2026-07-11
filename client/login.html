@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Login | RSK ESPORTS</title>
 
+<link rel="stylesheet" href="style.css">
+
+<style>
+.login-box{
+    width:350px;
+    margin:80px auto;
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:10px;
+    border:2px solid red;
+}
+
+.login-box h2{
+    text-align:center;
+    color:red;
+    margin-bottom:20px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:#111;
+    color:white;
+    border:1px solid #444;
+    border-radius:5px;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.login-box button:hover{
+    background:#ff3333;
+}
+
+.login-box p{
+    text-align:center;
+    margin-top:15px;
+}
+
+.login-box a{
+    color:red;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>🎮 RSK ESPORTS</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="tournament.html">Tournament</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Signup</a>
+</nav>
+</header>
+
+<div class="login-box">
+
+<h2>Player Login</h2>
+
+<form id="loginForm">
+
+<input
+type="email"
+placeholder="Enter Gmail"
+required>
+
+<input
+type="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit">Login</button>
+
+</form>
+
+<p>Don't have an account?
+<a href="signup.html">Create Account</a>
+</p>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Login System Backend me connect hoga.");
+
+});
+</script>
+
+</body>
+</html>
