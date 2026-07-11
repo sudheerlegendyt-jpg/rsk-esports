@@ -3,45 +3,75 @@ const router = express.Router();
 
 const Tournament = require("../models/Tournament");
 
-// Tournament Registration
-router.post("/register", async (req, res) => {
+// Add Tournament (Admin)
+router.post("/add", async (req, res) => {
     try {
-        const { playerName, gameUID, email, phone } = req.body;
+        const tournament = new Tournament(req.body);
+        await tournament.save();
 
-        const newRegistration = new Tournament({
-            playerName,
-            gameUID,
-            email,
-            phone,
-        });
-
-        await newRegistration.save();
-
-        res.status(201).json({
+        res.json({
             success: true,
-            message: "Registration Successful",
-            data: newRegistration,
+            message: "Tournament Added Successfully"
         });
 
-    } catch (error) {
-        console.error(error);
-
+    } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Server Error",
+            message: err.message
         });
     }
 });
 
-// Admin - Get All Registrations
+// Get All Tournaments (Home Page)
 router.get("/all", async (req, res) => {
     try {
-        const registrations = await Tournament.find().sort({ createdAt: -1 });
-        res.json(registrations);
-    } catch (error) {
+        const tournaments = await Tournament.find().sort({ createdAt: -1 });
+
+        res.json({
+            success: true,
+            tournaments
+        });
+
+    } catch (err) {
         res.status(500).json({
             success: false,
-            message: "Server Error",
+            message: err.message
+        });
+    }
+});
+
+// Update Tournament
+router.put("/:id", async (req, res) => {
+    try {
+        await Tournament.findByIdAndUpdate(req.params.id, req.body);
+
+        res.json({
+            success: true,
+            message: "Tournament Updated"
+        });
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+    }
+});
+
+// Delete Tournament
+router.delete("/:id", async (req, res) => {
+    try {
+        await Tournament.findByIdAndDelete(req.params.id);
+
+        res.json({
+            success: true,
+            message: "Tournament Deleted"
+        });
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message
         });
     }
 });
