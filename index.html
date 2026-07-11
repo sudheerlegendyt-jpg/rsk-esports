@@ -1,134 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- =========================================
+        RSK ESPORTS WEBSITE
+        Easy to Edit
+        Version 1.0
+    ========================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSK ESPORTS | Complete Tournament Platform</title>
-    <script src="https://tailwindcss.com"></script>
-    <style>
-        body { background-color: #f4f6f9; font-family: system-ui, -apple-system, sans-serif; color: #1a1a24; }
-        .clear-card { background: #ffffff; border: 1px solid rgba(225, 0, 50, 0.15); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
-        .dynamic-img { max-height: 350px; object-fit: cover; width: 100%; border-radius: 12px; }
-    </style>
+
+    <title>RSK ESPORTS | Official Website</title>
+
+    <meta name="description"
+        content="Official website of RSK ESPORTS - BGMI & Free Fire Max Esports Organization">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
-<body class="min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation Header -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex justify-between items-center shadow-sm">
-        <div class="cursor-pointer font-black text-2xl tracking-wider text-[#1a1a24]" onclick="renderView('home')">
-            RSK <span class="text-[#e10032]">ESPORTS</span>
-        </div>
-        <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-wider">
-            <button onclick="renderView('home')" class="text-gray-700 hover:text-[#e10032] transition font-bold">Home</button>
-            <button onclick="renderView('tournaments')" class="text-gray-700 hover:text-[#e10032] transition font-bold">Tournaments 🏆</button>
-            <button onclick="renderView('leaderboard')" class="text-gray-700 hover:text-[#e10032] transition font-bold">Leaderboard</button>
-            <button onclick="renderView('admin')" class="text-[#e10032] font-black hover:underline">Admin Panel ⚙️</button>
-        </div>
-        <div class="flex gap-3">
-            <button id="player-profile-btn" onclick="renderView('player-dashboard')" class="hidden bg-gray-800 text-white font-bold px-3 py-1.5 rounded text-xs">My Profile</button>
-            <button id="nav-login-btn" onclick="openPlayerLoginModal()" class="bg-[#1a1a24] text-white font-bold px-4 py-2 rounded text-xs uppercase">Player Login</button>
-        </div>
-    </nav>
+<body>
 
-    <!-- Master Engine App Router -->
-    <main class="flex-grow max-w-5xl w-full mx-auto px-6 py-12 flex flex-col justify-center">
-        
-        <!-- VIEW 1: HOME PAGE -->
-        <div id="view-home" class="view-layer block space-y-8">
-            <section class="min-h-[30vh] flex flex-col justify-center items-center text-center">
-                <h2 id="display-tagline" class="text-xs font-black tracking-[0.4em] text-[#e10032] uppercase mb-2">Play Beyond Limits</h2>
-                <h1 class="text-5xl md:text-7xl font-black uppercase text-[#1a1a24] mb-6">RSK <span class="text-[#e10032]">ESPORTS</span></h1>
-                <button onclick="renderView('tournaments')" class="bg-[#e10032] text-white font-black px-6 py-3 uppercase tracking-widest text-sm shadow-md">Browse Tournaments</button>
-            </section>
-            
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div><img id="display-image" src="https://unsplash.com" alt="Banner" class="dynamic-img shadow-md border" /></div>
-                <div class="clear-card p-8 rounded-xl relative">
-                    <span class="absolute top-0 right-0 bg-[#e10032] text-white text-[9px] font-bold px-3 py-1 uppercase tracking-wider rounded-bl-lg">Featured Event</span>
-                    <h3 id="display-banner" class="text-2xl font-black uppercase text-[#1a1a24] mb-2">BGMI Pro League</h3>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-xs text-gray-500 uppercase block font-semibold mb-1">Total Prize Pool</span>
-                        <span id="display-pool" class="text-3xl font-black text-[#e10032]">₹5,000,000</span>
-                    </div>
+    <!-- ================= HEADER START ================= -->
+
+    <header class="header">
+
+        <div class="container">
+
+            <div class="logo">
+
+                <h2>RSK <span>ESPORTS</span></h2>
+
+            </div>
+
+            <nav>
+
+                <ul class="nav-links">
+
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#tournament">Tournament</a></li>
+
+                    <li><a href="#team">Team</a></li>
+
+                    <li><a href="#gallery">Gallery</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+            <div class="menu-btn">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= HEADER END ================= -->
+
+
+    <!-- ================= HERO START ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <h3>WELCOME TO</h3>
+
+                <h1>RSK ESPORTS</h1>
+
+                <p>
+
+                    India's Competitive Gaming Community
+
+                    for BGMI & Free Fire Max.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#tournament" class="btn">Upcoming Tournament</a>
+
+                    <a href="#contact" class="btn btn-outline">Join Us</a>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- VIEW 2: DYNAMIC TOURNAMENTS & REGISTRATION -->
-        <div id="view-tournaments" class="view-layer hidden space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center text-[#1a1a24]">Active <span class="text-[#e10032]">Tournaments</span></h2>
-            <div id="dynamic-tournament-container" class="grid gap-4">
-                <!-- Javascript will auto-inject live tournaments here -->
+    </section>
+
+    <!-- ================= HERO END ================= -->
+
+
+    <!-- ================= ABOUT START ================= -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>ABOUT RSK ESPORTS</h2>
+
             </div>
 
-            <!-- REGISTRATION FORM OVERLAY MODAL -->
-            <div id="registration-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-                <div class="bg-white p-6 rounded-xl max-w-md w-full space-y-4 clear-card">
-                    <h3 class="text-lg font-black uppercase text-gray-900">Tournament <span class="text-[#e10032]">Registration</span></h3>
-                    <p id="reg-tournament-name" class="text-xs text-gray-500 font-bold uppercase"></p>
-                    <form onsubmit="submitTournamentRegistration(event)" class="space-y-3">
-                        <input type="text" id="reg-team-name" placeholder="Team Name" class="w-full bg-gray-50 border p-2.5 rounded text-sm outline-none" required />
-                        <input type="text" id="reg-captain-ign" placeholder="Captain In-Game Name (IGN)" class="w-full bg-gray-50 border p-2.5 rounded text-sm outline-none" required />
-                        <input type="text" id="reg-captain-xuid" placeholder="Character Game ID (UID)" class="w-full bg-gray-50 border p-2.5 rounded text-sm outline-none" required />
-                        <input type="tel" id="reg-contact" placeholder="WhatsApp Number" class="w-full bg-gray-50 border p-2.5 rounded text-sm outline-none" required />
-                        <div class="flex gap-2 pt-2">
-                            <button type="submit" class="w-full bg-green-600 text-white font-bold p-2.5 rounded text-xs uppercase">Confirm Slot</button>
-                            <button type="button" onclick="closeRegistrationModal()" class="w-full bg-gray-200 text-gray-800 font-bold p-2.5 rounded text-xs uppercase">Cancel</button>
+            <div class="about-grid">
+
+                <div class="about-image">
+
+                    <img src="images/logo.png" alt="RSK Logo">
+
+                </div>
+
+                <div class="about-text">
+
+                    <h3>Professional Esports Organization</h3>
+
+                    <p>
+
+                        RSK ESPORTS is a professional gaming community focused on
+
+                        BGMI and Free Fire Max tournaments.
+
+                    </p>
+
+                    <p>
+
+                        We organize tournaments, recruit talented players,
+
+                        provide management services,
+
+                        and build a strong esports ecosystem.
+
+                    </p>
+
+                    <div class="about-stats">
+
+                        <div class="stat">
+
+                            <h2>100+</h2>
+
+                            <span>Players</span>
+
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <!-- VIEW 3: LEADERBOARD -->
-        <div id="view-leaderboard" class="view-layer hidden space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center text-[#1a1a24]">Live <span class="text-[#e10032]">Standings</span></h2>
-            <div class="clear-card rounded-xl p-4 overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead><tr class="border-b text-gray-500 text-xs font-bold"><th class="p-2">Rank</th><th class="p-2">Team</th><th class="p-2">Points</th></tr></thead>
-                    <tbody class="text-sm font-bold text-gray-800 divide-y">
-                        <tr><td class="p-2 text-[#e10032]">#1</td><td class="p-2 uppercase">GodLike Esports</td><td class="p-2 text-[#e10032]">96</td></tr>
-                        <tr><td class="p-2 text-[#e10032]">#2</td><td class="p-2 uppercase">Team Soul</td><td class="p-2 text-[#e10032]">88</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                        <div class="stat">
 
-        <!-- VIEW 4: PLAYER DASHBOARD PROFILE -->
-        <div id="view-player-dashboard" class="view-layer hidden max-w-md w-full mx-auto space-y-6">
-            <div class="clear-card p-6 rounded-xl space-y-4">
-                <div class="border-b pb-2 flex justify-between items-center">
-                    <h3 class="text-lg font-black uppercase">Player <span class="text-[#e10032]">Dashboard</span></h3>
-                    <button onclick="logoutPlayer()" class="text-xs font-bold text-red-600 uppercase underline">Logout</button>
-                </div>
-                <div>
-                    <p class="text-xs text-gray-400 uppercase font-bold">Welcome Back</p>
-                    <h4 id="player-profile-name" class="text-xl font-black text-gray-900 uppercase"></h4>
-                </div>
-                <div class="border-t pt-4 space-y-2">
-                    <h5 class="text-xs font-black uppercase text-gray-500">Your Registered Slots</h5>
-                    <div id="player-slots-list" class="text-xs space-y-1 text-green-600 font-bold">
-                        <!-- User dynamic custom applications lists -->
+                            <h2>50+</h2>
+
+                            <span>Tournaments</span>
+
+                        </div>
+
+                        <div class="stat">
+
+                            <h2>25K+</h2>
+
+                            <span>Community</span>
+
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- VIEW 5: ADMIN MASTER CONTROLLER PANEL -->
-        <div id="view-admin" class="view-layer hidden max-w-lg w-full mx-auto">
-            <div id="admin-login-screen" class="clear-card p-6 rounded-xl space-y-4">
-                <h3 class="text-xl font-black uppercase text-center">Admin Security <span class="text-[#e10032]">Portal</span></h3>
-                <input type="password" id="auth-pass" placeholder="Enter Secret Password" class="w-full bg-gray-50 border p-3 rounded text-sm outline-none focus:border-[#e10032]" />
-                <button onclick="verifyAdminGate(event)" class="w-full bg-[#e10032] text-white py-3 font-bold text-xs uppercase tracking-wider rounded">Unlock Control Room</button>
+    </section>
+
+    <!-- ================= ABOUT END ================= -->
+
+
+    <!-- ================= TOURNAMENT START ================= -->
+
+    <section class="tournament" id="tournament">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>UPCOMING TOURNAMENTS</h2>
+
             </div>
 
-            <div id="admin-main-dashboard" class="hidden space-y-6">
-                <div class="flex justify-between items-center border-b pb-2">
-                    <h2 class="text-xl font-black uppercase text-[#1a1a24]">Master Customization Panel</h2>
-                    <button onclick="lockAdminGate()" class="bg-gray-800 text-white text-xs px-3 py-1.5 rounded">Lock Session</button>
+            <div class="card-grid">
+
+                <!-- Tournament Card 1 -->
+
+                <div class="card">
+
+                    <h3>BGMI SHOWDOWN S1</h3>
+
+                    <p>Entry Fee : ₹99</p>
+
+                    <p>Prize Pool : ₹10,000</p>
+
+                    <p>Date : Coming Soon</p>
+
+                    <a href="#" class="btn">Register</a>
+
                 </div>
-                
-                <!-- CREATING NEW TOURNAMENTS EVENT -->
-                <div class="clear-card p-6 rounded-xl space-y-4">
-                    <h3 class="font-black text-xs uppercase text-[#e10032]">🚀 Create New Tournament Event</h3>
-                    <form onsubmit="adminAddNewTournament(event)" class="grid gap-3">
+
+                <!-- Tournament Card 2 -->
+
+                <div class="card">
+
+                    <h3>FREE FIRE MAX CUP</h3>
+
+                    <p>Entry Fee : ₹49</p>
+
+                    <p>Prize Pool : ₹5,000</p>
+
+                    <p>Date : Coming Soon</p>
+
+                    <a href="#" class="btn">Register</a>
+
+                </div>
+                <!-- Tournament Card 3 -->
+
+                <div class="card">
+
+                    <h3>RSK SCRIMS</h3>
+
+                    <p>Daily Custom Rooms</p>
+
+                    <p>Morning & Night</p>
+
+                    <p>Join Discord</p>
+
+                    <a href="#" class="btn">Join Now</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TOURNAMENT END ================= -->
+
+
+    <!-- ================= TEAM START ================= -->
+
+    <section class="team" id="team">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>OUR TEAM</h2>
+
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <img src="images/team1.jpg" alt="Founder">
+
+                    <h3>Sudheer</h3>
+
+                    <span>Founder & CEO</span>
+
+                </div>
+
+                <div class="card">
+
+                    <img src="images/team2.jpg" alt="Manager">
+
+                    <h3>Manager</h3>
+
+                    <span>Esports Manager</span>
+
+                </div>
+
+                <div class="card">
+
+                    <img src="images/team3.jpg" alt="Captain">
+
+                    <h3>Captain</h3>
+
+                    <span>IGL</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TEAM END ================= -->
+
+
+    <!-- ================= GALLERY START ================= -->
+
+    <section class="gallery" id="gallery">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>GALLERY</h2>
+
+            </div>
+
+            <div class="gallery-grid">
+
+                <img src="images/gallery1.jpg" alt="Gallery">
+
+                <img src="images/gallery2.jpg" alt="Gallery">
+
+                <img src="images/gallery3.jpg" alt="Gallery">
+
+                <img src="images/gallery4.jpg" alt="Gallery">
+
+                <img src="images/gallery5.jpg" alt="Gallery">
+
+                <img src="images/gallery6.jpg" alt="Gallery">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= GALLERY END ================= -->
+
+
+    <!-- ================= NEWS START ================= -->
+
+    <section class="news">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>LATEST NEWS</h2>
+
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>New BGMI Tournament</h3>
+
+                    <p>
+
+                        Registration is now open for RSK Showdown Season 1.
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Player Recruitment</h3>
+
+                    <p>
+
+                        We are recruiting BGMI & FF Max players.
+
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Community Scrims</h3>
+
+                    <p>
+
+                        Join our daily custom rooms.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= NEWS END ================= -->
+
+
+    <!-- ================= SPONSORS START ================= -->
+
+    <section class="sponsors">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>OUR PARTNERS</h2>
+
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>Your Sponsor</h3>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Your Sponsor</h3>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Your Sponsor</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SPONSORS END ================= -->
+      <!-- ================= CONTACT START ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>CONTACT US</h2>
+
+            </div>
+
+            <div class="contact-box">
+
+                <form>
+
+                    <input type="text" placeholder="Your Name" required>
+
+                    <input type="email" placeholder="Your Email" required>
+
+                    <textarea placeholder="Your Message" rows="6"></textarea>
+
+                    <button type="submit" class="btn">Send Message</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACT END ================= -->
+
+
+    <!-- ================= FOOTER START ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <h2>RSK ESPORTS</h2>
+
+            <p>
+                India's Competitive Gaming Community
+            </p>
+
+            <div class="social">
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-youtube"></i></a>
+
+                <a href="#"><i class="fab fa-discord"></i></a>
+
+                <a href="#"><i class="fab fa-facebook"></i></a>
+
+            </div>
+
+            <p class="copyright">
+
+                © 2026 RSK ESPORTS. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= FOOTER END ================= -->
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
