@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSK ESPORTS Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+background:#0d0d0d;
+color:white;
+}
+
+.sidebar{
+width:260px;
+height:100vh;
+background:#141414;
+border-right:2px solid red;
+position:fixed;
+left:0;
+top:0;
+padding:20px;
+}
+
+.logo{
+text-align:center;
+font-size:24px;
+font-weight:bold;
+color:red;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+margin:10px 0;
+background:#1f1f1f;
+color:white;
+text-decoration:none;
+border-radius:8px;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:red;
+}
+
+.main{
+margin-left:260px;
+width:100%;
+padding:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:25px;
+border-radius:10px;
+border-left:5px solid red;
+}
+
+.card h2{
+color:red;
+margin-bottom:10px;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+}
+
+table th,table td{
+padding:12px;
+border:1px solid #333;
+text-align:center;
+}
+
+table th{
+background:red;
+}
+
+button{
+background:red;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff3333;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🎮 RSK ESPORTS
+</div>
+
+<a href="#">🏠 Dashboard</a>
+
+<a href="#">🏆 Tournament</a>
+
+<a href="#">📢 Notices</a>
+
+<a href="#">👥 Players</a>
+
+<a href="#">📝 Registrations</a>
+
+<a href="#">🖼 Banner Upload</a>
+
+<a href="#">⚙ Settings</a>
+
+<a href="#">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+<h1>Welcome Admin 👑</h1>
+
+<div class="cards">
+
+<div class="card">
+<h2>Total Players</h2>
+<h1>0</h1>
+</div>
+
+<div class="card">
+<h2>Tournaments</h2>
+<h1>0</h1>
+</div>
+
+<div class="card">
+<h2>Registrations</h2>
+<h1>0</h1>
+</div>
+
+<div class="card">
+<h2>Paid Scrims</h2>
+<h1>0</h1>
+</div>
+
+</div>
+
+<h2 style="margin-top:40px;">Recent Registrations</h2>
+
+<table>
+
+<tr>
+
+<th>Player</th>
+
+<th>IGN</th>
+
+<th>UID</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>No Data</td>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>Pending</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
