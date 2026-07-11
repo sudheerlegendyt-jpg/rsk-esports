@@ -173,19 +173,33 @@ background:#ff3333;
 
 </div>
 
-<!-- Tournament -->
-
-<div id="tournamentSection" style="display:none;">
+<div id="tournamentSection">
 
 <h2>🏆 Tournament Management</h2>
 
-<input type="text" placeholder="Tournament Name">
+<input type="text" id="name" placeholder="Tournament Name"><br><br>
 
-<input type="date">
+<input type="text" id="game" placeholder="Game Name"><br><br>
 
-<input type="text" placeholder="Prize Pool">
+<input type="date" id="date"><br><br>
 
-<button>Add Tournament</button>
+<input type="text" id="entryFee" placeholder="Entry Fee"><br><br>
+
+<input type="text" id="prizePool" placeholder="Prize Pool"><br><br>
+
+<select id="status">
+    <option value="Upcoming">Upcoming</option>
+    <option value="Live">Live</option>
+    <option value="Completed">Completed</option>
+</select>
+
+<br><br>
+
+<textarea id="description" placeholder="Tournament Description"></textarea>
+
+<br><br>
+
+<button onclick="addTournament()">Add Tournament</button>
 
 </div>
 
