@@ -99,22 +99,56 @@
 </div>
 
 <script>
-document.getElementById("signupForm").addEventListener("submit",function(e){
+document.getElementById("signupForm").addEventListener("submit", async function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-let pass=document.getElementById("password").value;
-let confirm=document.getElementById("confirmPassword").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-if(pass!==confirm){
-alert("Passwords do not match!");
-return;
-}
+    if(password !== confirmPassword){
+        alert("Passwords do not match!");
+        return;
+    }
 
-alert("Account Created Successfully! (Backend connect hone ke baad data save hoga.)");
+    const player = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: password
+    };
+
+    try{
+
+        const res = await fetch("/api/player/signup",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(player)
+        });
+
+        const data = await res.json();
+
+        if(data.success){
+
+            alert("✅ Account Created Successfully");
+
+            window.location.href="login.html";
+
+        }else{
+
+            alert(data.message);
+
+        }
+
+    }catch(err){
+
+        console.log(err);
+        alert("Server Error");
+
+    }
 
 });
 </script>
-
 </body>
 </html>
