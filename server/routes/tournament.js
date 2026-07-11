@@ -75,5 +75,28 @@ router.delete("/:id", async (req, res) => {
         });
     }
 });
+// Add Tournament
+router.post("/add", async (req, res) => {
+    try {
 
+        const GameTournament = require("../models/GameTournament");
+
+        const newTournament = new GameTournament(req.body);
+
+        await newTournament.save();
+
+        res.json({
+            success: true,
+            message: "Tournament Added Successfully"
+        });
+
+    } catch (err) {
+        console.log(err);
+
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+    }
+});
 module.exports = router;
