@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSK ESPORTS | Play Beyond Limits</title>
-    <!-- Tailwind Responsive Base Framework -->
+    <!-- Tailwind CSS Responsive Engine -->
     <script src="https://tailwindcss.com"></script>
     <style>
         body { background-color: #0a0a0c; font-family: system-ui, -apple-system, sans-serif; }
@@ -15,7 +15,7 @@
 </head>
 <body class="text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation Core Frame -->
+    <!-- Navigation Header Block -->
     <nav class="sticky top-0 z-50 bg-[#121216]/95 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
         <div class="cursor-pointer font-black text-2xl tracking-wider" onclick="switchPage('home')">
             RSK <span class="text-[#ff003c] neon-glow">ESPORTS</span>
@@ -29,11 +29,11 @@
         <a href="https://discord.gg" target="_blank" class="bg-[#ff003c] font-black px-4 py-2 rounded text-xs uppercase shadow-[0_0_10px_rgba(255,0,60,0.4)]">Join Discord</a>
     </nav>
 
-    <!-- Content Router Engine -->
+    <!-- App Dynamic Pages Switching Hub -->
     <main class="flex-grow">
         
-        <!-- MODULE 1: HOME PAGE GRID -->
-        <div id="page-home" class="page-zone block">
+        <!-- PAGE 1: HOME -->
+        <div id="page-home" class="page-zone">
             <section class="min-h-[50vh] flex flex-col justify-center items-center text-center px-6 bg-[radial-gradient(circle_at_center,rgba(255,0,60,0.15)_0%,transparent_60%)]">
                 <h2 id="live-tagline" class="text-xs font-bold tracking-[0.4em] text-[#ff003c] uppercase mb-2">Play Beyond Limits</h2>
                 <h1 class="text-5xl md:text-7xl font-black uppercase mb-6">RSK <span class="text-[#ff003c] neon-glow">ESPORTS</span></h1>
@@ -55,84 +55,80 @@
             </section>
         </div>
 
-        <!-- MODULE 2: TOURNAMENTS LIST -->
-        <div id="page-tournaments" class="page-zone hidden max-w-4xl mx-auto px-6 py-12 space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center">Active <span class="text-[#ff003c]">Championships</span></h2>
-            <div class="grid gap-4">
-                <div class="glass-panel p-5 rounded-xl flex flex-wrap items-center justify-between gap-4">
-                    <div><span class="bg-[#ff003c] text-[9px] font-black px-2 py-0.5 rounded uppercase">Upcoming</span><h3 class="text-lg font-bold uppercase mt-1">BGMI Ultimate Showdown</h3></div>
-                    <div class="flex gap-6 text-sm"><div><span class="text-gray-500 text-[10px] block">Pool</span><span class="font-bold text-[#ff003c]">₹2,50,000</span></div></div>
-                    <button class="bg-white text-black font-bold text-xs px-4 py-2 uppercase hover:bg-[#ff003c] hover:text-white transition cursor-pointer">Register</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODULE 3: LEADERBOARD SYSTEM -->
-        <div id="page-leaderboard" class="page-zone hidden max-w-4xl mx-auto px-6 py-12 space-y-6">
-            <h2 class="text-3xl font-black uppercase text-center">Live <span class="text-[#ff003c]">Standings</span></h2>
-            <div class="glass-panel rounded-xl p-4 overflow-x-auto">
-                <table class="w-full text-left min-w-[400px]">
-                    <thead><tr class="border-b border-white/10 text-gray-500 text-xs font-bold"><th class="p-2">Rank</th><th class="p-2">Team</th><th class="p-2">Points</th></tr></thead>
-                    <tbody class="text-sm font-semibold divide-y divide-white/5">
-                        <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#1</td><td class="p-2 font-bold uppercase">GodLike Esports</td><td class="p-2 text-[#ff003c] font-black">96</td></tr>
-                        <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#2</td><td class="p-2 font-bold uppercase">Team Soul</td><td class="p-2 text-[#ff003c] font-black">88</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- MODULE 4: PRODUCTION CONTROL CENTER -->
-        <div id="page-admin" class="page-zone hidden max-w-2xl mx-auto px-6 py-12">
-            <div id="admin-login-box">
-                <form onsubmit="handlePanelLogin(event)" class="p-6 glass-panel rounded-xl space-y-4">
-                    <h3 class="text-lg font-black uppercase text-center">Admin <span class="text-[#ff003c]">Portal</span></h3>
-                    <input type="text" id="admin-user" placeholder="Username (admin)" class="w-full bg-white/5 border border-white/10 p-3 rounded text-sm text-white focus:border-[#ff003c] outline-none" required />
-                    <input type="password" id="admin-pass" placeholder="Password (rsk123)" class="w-full bg-white/5 border border-white/10 p-3 rounded text-sm text-white focus:border-[#ff003c] outline-none" required />
-                    <button type="submit" class="w-full bg-[#ff003c] text-white py-3 font-bold text-xs uppercase tracking-wider rounded cursor-pointer">Verify Access</button>
-                </form>
-            </div>
-            <div id="admin-dashboard-box" class="hidden space-y-6">
-                <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                    <h2 class="text-xl font-black uppercase">Core Platform Panel</h2>
-                    <button onclick="handlePanelLogout()" class="bg-gray-800 text-xs px-2 py-1 rounded hover:bg-[#ff003c] cursor-pointer">Logout</button>
-                </div>
-                <div class="glass-panel p-4 rounded-xl space-y-4">
-                    <h3 class="font-bold text-xs uppercase text-[#ff003c]">Broadcast Parameters</h3>
-                    <div class="space-y-2">
-                        <label class="text-[10px] text-gray-500 uppercase block">Tagline</label>
-                        <input type="text" id="edit-tagline" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
-                        <label class="text-[10px] text-gray-500 uppercase block">Event Heading</label>
-                        <input type="text" id="edit-banner" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
-                        <label class="text-[10px] text-gray-500 uppercase block">Prize Capital</label>
-                        <input type="text" id="edit-pool" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
+        <!-- PAGE 2: TOURNAMENTS -->
+        <div id="page-tournaments" class="page-zone hidden">
+            <div class="max-w-4xl mx-auto px-6 py-12 space-y-6">
+                <h2 class="text-3xl font-black uppercase text-center">Active <span class="text-[#ff003c]">Championships</span></h2>
+                <div class="grid gap-4">
+                    <div class="glass-panel p-5 rounded-xl flex flex-wrap items-center justify-between gap-4">
+                        <div><span class="bg-[#ff003c] text-[9px] font-black px-2 py-0.5 rounded uppercase">Upcoming</span><h3 class="text-lg font-bold uppercase mt-1">BGMI Ultimate Showdown</h3></div>
+                        <div class="flex gap-6 text-sm"><div><span class="text-gray-500 text-[10px] block">Pool</span><span class="font-bold text-[#ff003c]">₹2,50,000</span></div></div>
+                        <button class="bg-white text-black font-bold text-xs px-4 py-2 uppercase hover:bg-[#ff003c] hover:text-white transition cursor-pointer">Register</button>
                     </div>
-                    <button onclick="saveLiveSettings()" class="w-full bg-green-600 font-bold text-xs py-2 uppercase rounded cursor-pointer">Push Core Override</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: LEADERBOARD -->
+        <div id="page-leaderboard" class="page-zone hidden">
+            <div class="max-w-4xl mx-auto px-6 py-12 space-y-6">
+                <h2 class="text-3xl font-black uppercase text-center">Live <span class="text-[#ff003c]">Standings</span></h2>
+                <div class="glass-panel rounded-xl p-4 overflow-x-auto">
+                    <table class="w-full text-left min-w-[400px]">
+                        <thead><tr class="border-b border-white/10 text-gray-500 text-xs font-bold"><th class="p-2">Rank</th><th class="p-2">Team</th><th class="p-2">Points</th></tr></thead>
+                        <tbody class="text-sm font-semibold divide-y divide-white/5">
+                            <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#1</td><td class="p-2 font-bold uppercase">GodLike Esports</td><td class="p-2 text-[#ff003c] font-black">96</td></tr>
+                            <tr class="hover:bg-white/5"><td class="p-2 text-[#ff003c]">#2</td><td class="p-2 font-bold uppercase">Team Soul</td><td class="p-2 text-[#ff003c] font-black">88</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4: ADMIN PORTAL CONTROLLER -->
+        <div id="page-admin" class="page-zone hidden">
+            <div class="max-w-2xl mx-auto px-6 py-12">
+                <div id="admin-login-box" class="block">
+                    <form onsubmit="handlePanelLogin(event)" class="p-6 glass-panel rounded-xl space-y-4">
+                        <h3 class="text-lg font-black uppercase text-center">Admin <span class="text-[#ff003c]">Portal</span></h3>
+                        <input type="text" id="admin-user" placeholder="Username (admin)" class="w-full bg-white/5 border border-white/10 p-3 rounded text-sm text-white focus:border-[#ff003c] outline-none" required />
+                        <input type="password" id="admin-pass" placeholder="Password (rsk123)" class="w-full bg-white/5 border border-white/10 p-3 rounded text-sm text-white focus:border-[#ff003c] outline-none" required />
+                        <button type="submit" class="w-full bg-[#ff003c] text-white py-3 font-bold text-xs uppercase tracking-wider rounded cursor-pointer">Verify Access</button>
+                    </form>
+                </div>
+                <div id="admin-dashboard-box" class="hidden space-y-6">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <h2 class="text-xl font-black uppercase">Core Platform Panel</h2>
+                        <button onclick="handlePanelLogout()" class="bg-gray-800 text-xs px-2 py-1 rounded hover:bg-[#ff003c] cursor-pointer">Logout</button>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl space-y-4">
+                        <h3 class="font-bold text-xs uppercase text-[#ff003c]">Broadcast Parameters</h3>
+                        <div class="space-y-2">
+                            <label class="text-[10px] text-gray-500 uppercase block">Tagline</label>
+                            <input type="text" id="edit-tagline" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
+                            <label class="text-[10px] text-gray-500 uppercase block">Event Heading</label>
+                            <input type="text" id="edit-banner" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
+                            <label class="text-[10px] text-gray-500 uppercase block">Prize Capital</label>
+                            <input type="text" id="edit-pool" class="w-full bg-white/5 border border-white/10 p-2 rounded text-xs text-white outline-none focus:border-[#ff003c]" />
+                        </div>
+                        <button onclick="saveLiveSettings()" class="w-full bg-green-600 font-bold text-xs py-2 uppercase rounded cursor-pointer">Push Core Override</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Base Branding Footer -->
+    <!-- Branding Footer -->
     <footer class="bg-[#121216] border-t border-white/10 p-6 text-center text-xs text-gray-500">
         <p class="font-bold text-white uppercase mb-1">RSK ESPORTS SYSTEM</p>
     </footer>
 
-    <!-- Native Single Page Component Switcher Architecture -->
+    <!-- Absolute Node State Layout Router Logic -->
     <script>
         function switchPage(pageId) {
-            // Saare visibility nodes ko clear karne ka absolute array router
+            // Saare content wrapper panels ko dhoondhkar enforce hidden state lagayein
             const zones = document.getElementsByClassName('page-zone');
             for(let i = 0; i < zones.length; i++) {
-                zones[i].style.display = 'none';
+                zones[i].style.setProperty('display', 'none', 'important');
             }
-            // Target route node configuration activate karein
-            const targetNode = document.getElementById('page-' + pageId);
-            if(targetNode) {
-                targetNode.style.display = 'block';
-            }
-        }
-
-        function handlePanelLogin(e) {
-            e.preventDefault();
-            const userRef = document.getElementById('admin-user').value;
-            const passRef = document.getElementById('admin-pass').value;
+            // Active targeted route target node ko select karke show karein
