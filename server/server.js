@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const adminRoutes = require("./routes/admin");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -12,6 +12,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/tournament", tournamentRoutes);
+app.use("/api/admin", adminRoutes);
 app.use(express.static(path.join(__dirname, "../client")));
 
 app.get("/", (req, res) => {
