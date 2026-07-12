@@ -3,6 +3,12 @@ const router = express.Router();
 
 const Tournament = require("../models/Tournament");
 const cloudinary = require("../config/cloudinary");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+
+const upload = multer({
+    storage: storage
+});
 
 // Add Tournament
 router.post("/add", async (req, res) => {
