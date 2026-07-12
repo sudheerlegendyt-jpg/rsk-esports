@@ -294,6 +294,21 @@ id="description"
 rows="5"
 placeholder="Tournament Description"></textarea>
 
+<h3>📷 Tournament Poster</h3>
+
+<input
+type="file"
+id="poster"
+accept="image/*">
+
+<br><br>
+
+<img
+id="preview"
+style="width:250px;display:none;border-radius:10px;border:2px solid red;">
+
+<br><br>
+
 <button onclick="addTournament()">
 ➕ Add Tournament
 </button>
@@ -494,31 +509,84 @@ function showSection(id){
 // Add Tournament
 async function addTournament(){
 
-    const tournament={
+    const formData = new FormData();
 
-        tournamentName:document.getElementById("name").value,
-        game:document.getElementById("game").value,
-        date:document.getElementById("date").value,
-        entryFee:document.getElementById("entryFee").value,
-        prizePool:document.getElementById("prizePool").value,
-        status:document.getElementById("status").value,
-        description:document.getElementById("description").value
+    formData.append(
+        "tournamentName",
+        document.getElementById("name").value
+    );
 
-    };
+    formData.append(
+        "game",
+        document.getElementById("game").value
+    );
+
+    formData.append(
+        "date",
+        document.getElementById("date").value
+    );
+
+    formData.append(
+        "entryFee",
+        document.getElementById("entryFee").value
+    );
+
+    formData.append(
+        "prizePool",
+        document.getElementById("prizePool").value
+    );
+
+    formData.append(
+        "status",
+        document.getElementById("status").value
+    );
+
+    formData.append(
+        "description",
+        document.getElementById("description").value
+    );
+
+    const poster = document.getElementById("poster").files[0];
+
+    if(poster){
+
+        formData.append("poster", poster);
+
+    }
 
     try{
 
-        const res=await fetch("/api/tournament/add",{
+        const res = await fetch("/api/tournament/add",{
 
             method:"POST",
 
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify(tournament)
+            body:formData
 
         });
+
+        const data = await res.json();
+
+        if(data.success){
+
+            alert("✅ Tournament Added");
+
+            location.reload();
+
+        }else{
+
+            alert(data.message);
+
+        }
+
+    }catch(err){
+
+        console.log(err);
+
+        alert("Server Error");
+
+    }
+
+}
 
         const data=await res.json();
 
@@ -550,7 +618,19 @@ async function addTournament(){
     }
 
 }
+document.getElementById("poster").addEventListener("change",function(){
 
+    const file=this.files[0];
+
+    if(file){
+
+        document.getElementById("preview").src=URL.createObjectURL(file);
+
+        document.getElementById("preview").style.display="block";
+
+    }
+
+});
 // Load Tournament List
 async function loadTournaments(){
 
