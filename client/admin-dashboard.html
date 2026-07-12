@@ -420,8 +420,10 @@ document.getElementById("poster").addEventListener("change",function(){
 
     if(file){
 
-        preview.src=URL.createObjectURL(file);
-        preview.style.display="block";
+        const preview = document.getElementById("preview");
+
+preview.src = URL.createObjectURL(file);
+preview.style.display = "block";
 
     }
 
@@ -432,17 +434,19 @@ async function addTournament(){
 
     const formData=new FormData();
 
-    formData.append("tournamentName",name.value);
-    formData.append("game",game.value);
-    formData.append("date",date.value);
-    formData.append("entryFee",entryFee.value);
-    formData.append("prizePool",prizePool.value);
-    formData.append("status",status.value);
-    formData.append("description",description.value);
+    formData.append("tournamentName", document.getElementById("name").value);
+formData.append("game", document.getElementById("game").value);
+formData.append("date", document.getElementById("date").value);
+formData.append("entryFee", document.getElementById("entryFee").value);
+formData.append("prizePool", document.getElementById("prizePool").value);
+formData.append("status", document.getElementById("status").value);
+formData.append("description", document.getElementById("description").value);
 
-    if(poster.files.length){
+    const poster = document.getElementById("poster");
 
-        formData.append("poster",poster.files[0]);
+if (poster.files.length) {
+    formData.append("poster", poster.files[0]);
+}
 
     }
 
