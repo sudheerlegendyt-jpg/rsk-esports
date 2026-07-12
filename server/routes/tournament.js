@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Tournament = require("../models/Tournament");
+const cloudinary = require("../config/cloudinary");
 
 // Add Tournament
 router.post("/add", async (req, res) => {
