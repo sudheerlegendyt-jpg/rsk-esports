@@ -38,7 +38,7 @@ router.post("/add", async (req, res) => {
 });
 
 // Get All Tournaments
-router.get("/all", async (req, res) => {
+router.post("/add", upload.single("poster"), async (req, res) => {
 
     try {
 
