@@ -332,6 +332,7 @@ style="width:250px;display:none;border-radius:10px;border:2px solid red;">
 <th>Status</th>
 
 <th>Prize Pool</th>
+<th>Action</th>
 
 </tr>
 
@@ -588,12 +589,6 @@ async function addTournament(){
 
 }
 
-        const data=await res.json();
-
-        if(data.success){
-
-            alert("✅ Tournament Added Successfully");
-
             document.getElementById("name").value="";
             document.getElementById("game").value="";
             document.getElementById("date").value="";
@@ -650,15 +645,39 @@ async function loadTournaments(){
 
             data.tournaments.forEach(t=>{
 
-                tbody.innerHTML+=`
-                <tr>
-                    <td>${t.tournamentName}</td>
-                    <td>${t.game}</td>
-                    <td>${t.date}</td>
-                    <td>${t.status}</td>
-                    <td>${t.prizePool}</td>
-                </tr>
-                `;
+               tbody.innerHTML+=`
+<tr>
+
+<td>${t.tournamentName}</td>
+
+<td>${t.game}</td>
+
+<td>${t.date}</td>
+
+<td>${t.status}</td>
+
+<td>${t.prizePool}</td>
+
+<td>
+
+<button onclick="editTournament('${t._id}')">
+✏ Edit
+</button>
+
+<br><br>
+
+<button
+style="background:#b30000;"
+onclick="deleteTournament('${t._id}')">
+
+🗑 Delete
+
+</button>
+
+</td>
+
+</tr>
+`;
 
             });
 
@@ -710,6 +729,40 @@ function saveSettings(){
 
 // Load on Start
 loadTournaments();
+async function deleteTournament(id){
+
+    if(!confirm("Delete Tournament ?")) return;
+
+    try{
+
+        const res=await fetch("/api/tournament/"+id,{
+
+            method:"DELETE"
+
+        });
+
+        const data=await res.json();
+
+        alert(data.message);
+
+        loadTournaments();
+
+    }catch(err){
+
+        console.log(err);
+
+        alert("Delete Failed");
+
+    }
+
+}
+
+
+function editTournament(id){
+
+    alert("Edit Feature Next Step me add karenge.\n\nID : "+id);
+
+}
 
 </script>
 
