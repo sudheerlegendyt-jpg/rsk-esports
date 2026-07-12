@@ -1,35 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSK ESPORTS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSK ESPORTS</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.tournaments{
+    padding:60px 20px;
+    background:#111;
+    text-align:center;
+}
+
+.tournaments h2{
+    color:red;
+    margin-bottom:30px;
+    font-size:35px;
+}
+
+.tournament-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.tournament-card{
+    background:#1b1b1b;
+    border-radius:12px;
+    overflow:hidden;
+    border:2px solid red;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.tournament-card:hover{
+    transform:translateY(-8px);
+}
+
+.tournament-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.tournament-card h3{
+    color:red;
+    margin-top:15px;
+}
+
+.tournament-card p{
+    margin:8px;
+    color:white;
+}
+
+.tournament-card button{
+    margin:15px;
+    width:90%;
+    padding:12px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.tournament-card button:hover{
+    background:#ff3333;
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <h1>RSK ESPORTS</h1>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="tournament.html">Tournament</a>
-        <a href="login.html">Player Login</a>
-        <a href="signup.html">Sign Up</a>
-        <a href="admin-login.html">Admin Login</a>
-    </nav>
+<h1>🎮 RSK ESPORTS</h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="tournament.html">Tournament</a>
+
+<a href="login.html">Player Login</a>
+
+<a href="signup.html">Sign Up</a>
+
+<a href="admin-login.html">Admin Login</a>
+
+</nav>
+
 </header>
 
 <section class="hero">
-    <div class="overlay">
-        <h2>RSK ESPORTS</h2>
-        <p>Play • Compete • Win</p>
 
-        <a href="tournament.html">
-            <button>Register Now</button>
-        </a>
-    </div>
+<div class="overlay">
+
+<h2>RSK ESPORTS</h2>
+
+<p>Play • Compete • Win</p>
+
+<a href="tournament.html">
+<button>Explore Tournament</button>
+</a>
+
+</div>
+
+</section>
+
+<section class="tournaments">
+
+<h2>🏆 Live Tournaments</h2>
+
+<div class="tournament-grid" id="tournamentContainer">
+
+<div class="tournament-card"
+onclick="window.location.href='tournament.html'">
+
+<img src="images/bgmi.jpg" alt="Tournament">
+
+<h3>BGMI CHAMPIONSHIP</h3>
+
+<p>📅 Date : 20 July 2026</p>
+
+<p>💰 Entry Fee : ₹100</p>
+
+<p>🏆 Prize Pool : ₹10,000</p>
+
+<p>🔴 Status : Live</p>
+
+<button>Register Now</button>
+
+</div>
+
+<div class="tournament-card"
+onclick="window.location.href='tournament.html'">
+
+<img src="images/freefire.jpg" alt="Tournament">
+
+<h3>FREE FIRE MAX CUP</h3>
+
+<p>📅 Date : 25 July 2026</p>
+
+<p>💰 Entry Fee : ₹50</p>
+
+<p>🏆 Prize Pool : ₹5,000</p>
+
+<p>🟢 Status : Upcoming</p>
+
+<button>Register Now</button>
+
+</div>
+
+</div>
+
 </section>
 
 <script src="script.js"></script>
