@@ -4,6 +4,7 @@ const router = express.Router();
 const Tournament = require("../models/Tournament");
 const cloudinary = require("../config/cloudinary");
 const multer = require("multer");
+
 const storage = multer.memoryStorage();
 
 const upload = multer({
@@ -11,11 +12,37 @@ const upload = multer({
 });
 
 // Add Tournament
-router.post("/add", async (req, res) => {
+router.post("/add", upload.single("poster"), async (req, res) => {
 
     try {
 
-        const tournament = new Tournament(req.body);
+        let posterUrl = "";
+
+        if (req.file) {
+
+            const result = await cloudinary.uploader.upload(
+                "data:" +
+                req.file.mimetype +
+                ";base64," +
+                req.file.buffer.toString("base64"),
+                {
+                    folder: "rsk-esports/tournaments"
+                }
+            );
+
+            posterUrl = result.secure_url;
+        }
+
+        const tournament = new Tournament({
+            tournamentName: req.body.tournamentName,
+            game: req.body.game,
+            date: req.body.date,
+            entryFee: req.body.entryFee,
+            prizePool: req.body.prizePool,
+            status: req.body.status,
+            description: req.body.description,
+            poster: posterUrl
+        });
 
         await tournament.save();
 
@@ -38,22 +65,22 @@ router.post("/add", async (req, res) => {
 });
 
 // Get All Tournaments
-router.post("/add", upload.single("poster"), async (req, res) => {
+router.get("/all", async (req, res) => {
 
     try {
 
-        const tournaments = await Tournament.find().sort({_id:-1});
+        const tournaments = await Tournament.find().sort({ _id: -1 });
 
         res.json({
-            success:true,
+            success: true,
             tournaments
         });
 
     } catch (err) {
 
         res.status(500).json({
-            success:false,
-            message:err.message
+            success: false,
+            message: err.message
         });
 
     }
@@ -61,22 +88,22 @@ router.post("/add", upload.single("poster"), async (req, res) => {
 });
 
 // Update Tournament
-router.put("/:id", async (req,res)=>{
+router.put("/:id", async (req, res) => {
 
-    try{
+    try {
 
-        await Tournament.findByIdAndUpdate(req.params.id,req.body);
+        await Tournament.findByIdAndUpdate(req.params.id, req.body);
 
         res.json({
-            success:true,
-            message:"Tournament Updated"
+            success: true,
+            message: "Tournament Updated"
         });
 
-    }catch(err){
+    } catch (err) {
 
         res.status(500).json({
-            success:false,
-            message:err.message
+            success: false,
+            message: err.message
         });
 
     }
@@ -84,22 +111,22 @@ router.put("/:id", async (req,res)=>{
 });
 
 // Delete Tournament
-router.delete("/:id", async(req,res)=>{
+router.delete("/:id", async (req, res) => {
 
-    try{
+    try {
 
         await Tournament.findByIdAndDelete(req.params.id);
 
         res.json({
-            success:true,
-            message:"Tournament Deleted"
+            success: true,
+            message: "Tournament Deleted"
         });
 
-    }catch(err){
+    } catch (err) {
 
         res.status(500).json({
-            success:false,
-            message:err.message
+            success: false,
+            message: err.message
         });
 
     }
