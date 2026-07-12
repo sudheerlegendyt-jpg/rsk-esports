@@ -122,13 +122,18 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         const data = await res.json();
 
-        if(data.success){
+       if(data.success){
 
-            alert("Login Successful");
+    alert("Login Successful");
 
-            localStorage.setItem("player",JSON.stringify(data.player));
+    localStorage.setItem("playerEmail", data.player.email);
+    localStorage.setItem("player", JSON.stringify(data.player));
 
-            window.location.href="player-dashboard.html";
+    console.log("Saved Email:", data.player.email);
+
+    window.location.href = "player-dashboard.html";
+
+}
 
         }else{
 
