@@ -122,18 +122,14 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         const data = await res.json();
 
-       if(data.success){
+        if(data.success){
 
-    alert("Login Successful");
+            alert("Login Successful");
 
-    localStorage.setItem("playerEmail", data.player.email);
-    localStorage.setItem("player", JSON.stringify(data.player));
+            localStorage.setItem("playerEmail", data.player.email);
+            localStorage.setItem("player", JSON.stringify(data.player));
 
-    console.log("Saved Email:", data.player.email);
-
-    window.location.href = "player-dashboard.html";
-
-}
+            window.location.href = "player-dashboard.html";
 
         }else{
 
@@ -143,14 +139,10 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
     }catch(err){
 
-        console.log(err);
-
+        console.error(err);
         alert("Server Error");
 
     }
 
 });
 </script>
-
-</body>
-</html>
