@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -52,8 +53,8 @@ background:#1f1f1f;
 color:white;
 text-decoration:none;
 border-radius:8px;
-transition:.3s;
 cursor:pointer;
+transition:.3s;
 }
 
 .sidebar a:hover{
@@ -116,7 +117,6 @@ border:none;
 padding:12px 25px;
 border-radius:6px;
 cursor:pointer;
-transition:.3s;
 }
 
 button:hover{
@@ -140,47 +140,23 @@ table th{
 background:red;
 }
 
-@media(max-width:768px){
-
-.sidebar{
-width:220px;
-}
-
-.main{
-margin-left:220px;
-padding:20px;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 
 </head>
 
 <body>
-
-<div class="sidebar">
+    <div class="sidebar">
 
 <div class="logo">
 🎮 RSK ESPORTS
 </div>
 
 <a onclick="showSection('dashboardSection')">🏠 Dashboard</a>
-
 <a onclick="showSection('tournamentSection')">🏆 Tournament</a>
-
 <a onclick="showSection('noticeSection')">📢 Notices</a>
-
 <a onclick="showSection('playerSection')">👥 Players</a>
-
 <a onclick="showSection('registrationSection')">📝 Registrations</a>
-
 <a onclick="showSection('bannerSection')">🖼 Banner Upload</a>
-
 <a onclick="showSection('settingSection')">⚙ Settings</a>
 
 <a href="index.html">🚪 Logout</a>
@@ -190,7 +166,8 @@ grid-template-columns:1fr;
 <div class="main">
 
 <h1>Welcome Admin 👑</h1>
-<!-- Dashboard Section -->
+
+<!-- Dashboard -->
 
 <div id="dashboardSection" class="section">
 
@@ -220,64 +197,23 @@ grid-template-columns:1fr;
 
 </div>
 
-<br><br>
-
-<h2>Recent Registrations</h2>
-
-<table>
-
-<thead>
-
-<tr>
-<th>Player</th>
-<th>Game</th>
-<th>UID</th>
-<th>Status</th>
-</tr>
-
-</thead>
-
-<tbody id="recentRegistrationBody">
-
-<tr>
-<td colspan="4">No Registration Found</td>
-</tr>
-
-</tbody>
-
-</table>
-
 </div>
 
-<!-- Tournament Section -->
+<!-- Tournament -->
 
 <div id="tournamentSection" class="section">
 
 <h2>🏆 Tournament Management</h2>
 
-<input
-type="text"
-id="name"
-placeholder="Tournament Name">
+<input type="text" id="name" placeholder="Tournament Name">
 
-<input
-type="text"
-id="game"
-placeholder="Game Name">
+<input type="text" id="game" placeholder="Game Name">
 
-<input
-type="date"
-id="date">
+<input type="date" id="date">
 
-<input
-type="number"
-id="entryFee"
-placeholder="Entry Fee">
+<input type="number" id="entryFee" placeholder="Entry Fee">
 
-<input
-type="text"
-id="prizePool"
-placeholder="Prize Pool">
+<input type="text" id="prizePool" placeholder="Prize Pool">
 
 <select id="status">
 
@@ -310,27 +246,25 @@ style="width:250px;display:none;border-radius:10px;border:2px solid red;">
 <br><br>
 
 <button onclick="addTournament()">
+
 ➕ Add Tournament
+
 </button>
 
 <br><br>
 
 <h2>All Tournaments</h2>
 
-<table id="tournamentTable">
+<table>
 
 <thead>
 
 <tr>
 
 <th>Name</th>
-
 <th>Game</th>
-
 <th>Date</th>
-
 <th>Status</th>
-
 <th>Prize Pool</th>
 <th>Action</th>
 
@@ -342,7 +276,7 @@ style="width:250px;display:none;border-radius:10px;border:2px solid red;">
 
 <tr>
 
-<td colspan="5">
+<td colspan="6">
 
 No Tournament Added
 
@@ -381,27 +315,17 @@ Publish Notice
 <table>
 
 <thead>
-
 <tr>
-
 <th>Name</th>
-
 <th>Email</th>
-
 <th>Action</th>
-
 </tr>
-
 </thead>
 
 <tbody id="playerBody">
 
 <tr>
-
-<td colspan="3">
-No Players Found
-</td>
-
+<td colspan="3">No Players Found</td>
 </tr>
 
 </tbody>
@@ -419,27 +343,17 @@ No Players Found
 <table>
 
 <thead>
-
 <tr>
-
 <th>Player</th>
-
 <th>Tournament</th>
-
 <th>Status</th>
-
 </tr>
-
 </thead>
 
 <tbody id="registrationBody">
 
 <tr>
-
-<td colspan="3">
-No Registrations Found
-</td>
-
+<td colspan="3">No Registrations Found</td>
 </tr>
 
 </tbody>
@@ -454,13 +368,9 @@ No Registrations Found
 
 <h2>🖼 Banner Upload</h2>
 
-<input
-type="file"
-id="bannerFile">
+<input type="file" id="bannerFile">
 
-<button>
-Upload Banner
-</button>
+<button>Upload Banner</button>
 
 </div>
 
@@ -499,153 +409,74 @@ function showSection(id){
         section.style.display="none";
     });
 
-    const selected=document.getElementById(id);
-
-    if(selected){
-        selected.style.display="block";
-    }
+    document.getElementById(id).style.display="block";
 
 }
 
-// Add Tournament
-async function addTournament(){
-
-    const formData = new FormData();
-
-    formData.append(
-        "tournamentName",
-        document.getElementById("name").value
-    );
-
-    formData.append(
-        "game",
-        document.getElementById("game").value
-    );
-
-    formData.append(
-        "date",
-        document.getElementById("date").value
-    );
-
-    formData.append(
-        "entryFee",
-        document.getElementById("entryFee").value
-    );
-
-    formData.append(
-        "prizePool",
-        document.getElementById("prizePool").value
-    );
-
-    formData.append(
-        "status",
-        document.getElementById("status").value
-    );
-
-    formData.append(
-        "description",
-        document.getElementById("description").value
-    );
-
-    const poster = document.getElementById("poster").files[0];
-
-    if(poster){
-
-        formData.append("poster", poster);
-
-    }
-
-    try{
-
-        const res = await fetch("/api/tournament/add",{
-
-            method:"POST",
-
-            body:formData
-
-        });
-
-        const data = await res.json();
-
-        if(data.success){
-
-            alert("✅ Tournament Added");
-
-            location.reload();
-
-        }else{
-
-            alert(data.message);
-
-        }
-
-    }catch(err){
-
-        console.log(err);
-
-        alert("Server Error");
-
-    }
-
-}
-
-            document.getElementById("name").value="";
-            document.getElementById("game").value="";
-            document.getElementById("date").value="";
-            document.getElementById("entryFee").value="";
-            document.getElementById("prizePool").value="";
-            document.getElementById("description").value="";
-            document.getElementById("status").value="Upcoming";
-
-            loadTournaments();
-
-        }else{
-
-            alert(data.message);
-
-        }
-
-    }catch(err){
-
-        console.log(err);
-        alert("❌ Server Error");
-
-    }
-
-}
+// Image Preview
 document.getElementById("poster").addEventListener("change",function(){
 
     const file=this.files[0];
 
     if(file){
 
-        document.getElementById("preview").src=URL.createObjectURL(file);
-
-        document.getElementById("preview").style.display="block";
+        preview.src=URL.createObjectURL(file);
+        preview.style.display="block";
 
     }
 
 });
-// Load Tournament List
+
+// Add Tournament
+async function addTournament(){
+
+    const formData=new FormData();
+
+    formData.append("tournamentName",name.value);
+    formData.append("game",game.value);
+    formData.append("date",date.value);
+    formData.append("entryFee",entryFee.value);
+    formData.append("prizePool",prizePool.value);
+    formData.append("status",status.value);
+    formData.append("description",description.value);
+
+    if(poster.files.length){
+
+        formData.append("poster",poster.files[0]);
+
+    }
+
+    const res=await fetch("/api/tournament/add",{
+
+        method:"POST",
+        body:formData
+
+    });
+
+    const data=await res.json();
+
+    alert(data.message);
+
+    loadTournaments();
+
+}
+
+// Load Tournament
 async function loadTournaments(){
 
-    try{
+    const res=await fetch("/api/tournament/all");
 
-        const res=await fetch("/api/tournament/all");
+    const data=await res.json();
 
-        const data=await res.json();
+    const body=document.getElementById("tournamentBody");
 
-        const tbody=document.getElementById("tournamentBody");
+    body.innerHTML="";
 
-        tbody.innerHTML="";
+    document.getElementById("tour").innerText=data.tournaments.length;
 
-        if(data.success && data.tournaments.length){
+    data.tournaments.forEach(t=>{
 
-            document.getElementById("tour").innerText=data.tournaments.length;
-
-            data.tournaments.forEach(t=>{
-
-               tbody.innerHTML+=`
+        body.innerHTML+=`
 <tr>
 
 <td>${t.tournamentName}</td>
@@ -667,7 +498,7 @@ async function loadTournaments(){
 <br><br>
 
 <button
-style="background:#b30000;"
+style="background:#b30000"
 onclick="deleteTournament('${t._id}')">
 
 🗑 Delete
@@ -679,90 +510,51 @@ onclick="deleteTournament('${t._id}')">
 </tr>
 `;
 
-            });
+    });
 
-        }else{
+}
 
-            tbody.innerHTML=`
-            <tr>
-                <td colspan="5">No Tournament Found</td>
-            </tr>
-            `;
+// Delete Tournament
+async function deleteTournament(id){
 
-        }
+    if(!confirm("Delete Tournament?")) return;
 
-    }catch(err){
+    const res=await fetch("/api/tournament/"+id,{
 
-        console.log(err);
+        method:"DELETE"
 
-    }
+    });
+
+    const data=await res.json();
+
+    alert(data.message);
+
+    loadTournaments();
+
+}
+
+// Edit (Coming Soon)
+function editTournament(id){
+
+    alert("Edit Feature Coming Soon\n\nID : "+id);
 
 }
 
 // Notice
 function publishNotice(){
 
-    const notice=document.getElementById("noticeText").value;
-
-    if(notice==""){
-
-        alert("Please write a notice.");
-
-        return;
-
-    }
-
-    alert("📢 Notice Published Successfully");
-
-    document.getElementById("noticeText").value="";
+    alert("Notice Published");
 
 }
 
 // Settings
 function saveSettings(){
 
-    const website=document.getElementById("siteName").value;
-
-    alert("⚙ Settings Saved Successfully");
+    alert("Settings Saved");
 
 }
 
-// Load on Start
 loadTournaments();
-async function deleteTournament(id){
-
-    if(!confirm("Delete Tournament ?")) return;
-
-    try{
-
-        const res=await fetch("/api/tournament/"+id,{
-
-            method:"DELETE"
-
-        });
-
-        const data=await res.json();
-
-        alert(data.message);
-
-        loadTournaments();
-
-    }catch(err){
-
-        console.log(err);
-
-        alert("Delete Failed");
-
-    }
-
-}
-
-
-function editTournament(id){
-
-    alert("Edit Feature Next Step me add karenge.\n\nID : "+id);
-
-}
 
 </script>
 
